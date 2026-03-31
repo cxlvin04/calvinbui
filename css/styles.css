@@ -37,6 +37,11 @@ html {
   html {
     scroll-behavior: auto;
   }
+
+  main,
+  .site-footer {
+    animation: none;
+  }
 }
 
 body {
@@ -319,6 +324,18 @@ a:hover {
   }
 }
 
+/* Page load: subtle fade + slide up (runs on every navigation) */
+@keyframes page-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Main: fills space between header and footer (no page scroll) */
 main {
   flex: 1 1 0;
@@ -326,6 +343,7 @@ main {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  animation: page-content-in 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Sections */
@@ -546,6 +564,15 @@ main {
   width: 100%;
   max-width: 100%;
   justify-content: center;
+  padding: 0.65rem 1.15rem;
+  font-size: 0.97rem;
+  gap: 0.55rem;
+  border-radius: 8px;
+}
+
+.resume-link--about .resume-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .about-main {
@@ -634,6 +661,13 @@ main {
 
 .seahawks-word--city::after {
   content: "\00a0";
+}
+
+.seahawks-nfl {
+  color: var(--ink-muted);
+  font-weight: 500;
+  font-size: 0.78em;
+  margin: 0 0.2em 0 0.15em;
 }
 
 .seahawks-word--team {
@@ -991,6 +1025,7 @@ main {
   padding: 0.65rem 1rem;
   text-align: center;
   background: var(--bg);
+  animation: page-content-in 0.52s cubic-bezier(0.22, 1, 0.36, 1) 0.07s both;
 }
 
 .footer-copy {
