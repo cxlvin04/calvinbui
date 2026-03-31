@@ -565,35 +565,82 @@ main {
   margin-bottom: 0;
 }
 
-.about-aside {
+.about-skills,
+.about-hobbies {
   background: var(--bg-subtle);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: clamp(0.85rem, 2vh, 1.35rem);
 }
 
-.about-aside-title {
+.about-skills-title,
+.about-hobbies-title {
   font-family: var(--font-display);
   font-size: 1.05rem;
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.75rem;
 }
 
-.pill-list {
+.skills-tags,
+.hobbies-tags {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.5rem;
 }
 
-.pill-list li {
-  font-size: 0.9375rem;
-  padding: 0.45rem 0.75rem;
+.skills-tags li,
+.hobbies-tags li {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.4rem 0.7rem;
   background: var(--bg);
-  border-radius: 6px;
+  border-radius: 999px;
   border: 1px solid var(--line);
   color: var(--ink);
+  line-height: 1.35;
+}
+
+/* Seattle Seahawks brand: College Navy + Action Green */
+.hobbies-tag-seahawks {
+  border-color: rgba(0, 34, 68, 0.22);
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.seahawks-word {
+  font-weight: 600;
+}
+
+.seahawks-word--city {
+  color: #002244;
+}
+
+.seahawks-word--city::after {
+  content: "\00a0";
+}
+
+.seahawks-word--team {
+  color: #69be28;
+}
+
+.about-skills-lang {
+  margin: 0.85rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.about-skills-lang-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
 }
 
 /* Projects */
