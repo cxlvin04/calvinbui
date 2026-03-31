@@ -579,6 +579,57 @@ main {
   height: 20px;
 }
 
+.about-edu {
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.about-edu-mark {
+  margin-bottom: 0.25rem;
+  line-height: 0;
+}
+
+.about-uiuc-block-i {
+  display: block;
+  width: 48px;
+  height: auto;
+  filter: drop-shadow(0 2px 6px rgba(19, 41, 75, 0.15));
+}
+
+.about-edu-school {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.about-edu-uni {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  line-height: 1.4;
+  max-width: 16rem;
+}
+
+.about-edu-degree {
+  margin: 0.15rem 0 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  line-height: 1.45;
+  max-width: 18rem;
+}
+
 .about-main {
   display: flex;
   flex-direction: column;
@@ -912,6 +963,10 @@ main {
 .contact-intro p {
   margin: 0 0 1.1rem;
   color: var(--ink-muted);
+}
+
+.contact-intro p.contact-intro-lead {
+  color: var(--accent);
 }
 
 .contact-direct {
