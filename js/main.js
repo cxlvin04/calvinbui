@@ -114,7 +114,6 @@
     "https://mail.google.com/mail/?view=cm&fs=1&to=" +
     encodeURIComponent(CONTACT_EMAIL);
   var MAILTO_HREF = "mailto:" + CONTACT_EMAIL;
-  var TEL_HREF = "tel:+16303402278";
   var PHONE_COPY_TEXT = "+1 630-340-2278";
 
   function showContactFeedback(message) {
@@ -151,14 +150,24 @@
 
   function syncPhoneAriaForViewport() {
     if (!phoneLink) return;
-    if (desktopMql.matches) {
+    if (allowNativeTelLink()) {
+      phoneLink.setAttribute("aria-label", "Call " + PHONE_COPY_TEXT);
+    } else {
       phoneLink.setAttribute(
         "aria-label",
         "Copy phone number " + PHONE_COPY_TEXT + " to clipboard"
       );
-    } else {
-      phoneLink.setAttribute("aria-label", "Call " + PHONE_COPY_TEXT);
     }
+  }
+
+  function allowNativeTelLink() {
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      return true;
+    }
+    return (
+      window.matchMedia("(pointer: coarse)").matches &&
+      window.innerWidth <= 768
+    );
   }
 
   function syncContactDesktop() {
@@ -169,26 +178,64 @@
   if (emailLink || phoneLink) {
     syncContactDesktop();
     desktopMql.addEventListener("change", syncContactDesktop);
+    window.addEventListener("resize", syncContactDesktop);
+  }
+
+  /**
+   * Copy phone number in the same user-gesture tick. Never navigate to tel: from
+   * async callbacks — browsers block that as an automatic call.
+   */
+  function copyPhoneNumberSync() {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        var p = navigator.clipboard.writeText(PHONE_COPY_TEXT);
+        if (p && typeof p.then === "function") {
+          p.then(function () {
+            showContactFeedback(
+              "Number copied. Paste it into your phone or dialer to call."
+            );
+          }).catch(function () {
+            showContactFeedback(
+              "Copy this number: " + PHONE_COPY_TEXT
+            );
+          });
+          return;
+        }
+      } catch (err) {
+        /* fall through */
+      }
+    }
+    var ta = document.createElement("textarea");
+    ta.value = PHONE_COPY_TEXT;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      var ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      if (ok) {
+        showContactFeedback(
+          "Number copied. Paste it into your phone or dialer to call."
+        );
+      } else {
+        showContactFeedback("Copy this number: " + PHONE_COPY_TEXT);
+      }
+    } catch (err2) {
+      document.body.removeChild(ta);
+      showContactFeedback("Copy this number: " + PHONE_COPY_TEXT);
+    }
   }
 
   if (phoneLink) {
     phoneLink.addEventListener("click", function (e) {
-      if (!desktopMql.matches) return;
-      e.preventDefault();
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(PHONE_COPY_TEXT).then(
-          function () {
-            showContactFeedback(
-              "Number copied. Paste it into your phone or dialer to call."
-            );
-          },
-          function () {
-            window.location.href = TEL_HREF;
-          }
-        );
-      } else {
-        window.location.href = TEL_HREF;
+      /* Native tel: only on phones/tablets; PC blocks async tel: as auto-dial. */
+      if (allowNativeTelLink()) {
+        return;
       }
+      e.preventDefault();
+      copyPhoneNumberSync();
     });
   }
 })();
