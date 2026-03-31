@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="none" />
+  <text
+    x="50%"
+    y="50%"
+    dominant-baseline="central"
+    text-anchor="middle"
+    font-family="Bricolage Grotesque, IBM Plex Sans, system-ui, sans-serif"
+    font-size="30"
+    font-weight="700"
+    letter-spacing="-1"
+    fill="#1c1b19"
+  >
+    CB
+  </text>
+</svg>
