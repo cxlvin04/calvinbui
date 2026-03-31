@@ -573,11 +573,22 @@ a:hover {
   display: flex;
   flex-direction: column;
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow);
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.project-card--link {
+  cursor: pointer;
 }
 
 .project-thumb {
@@ -736,4 +747,61 @@ a:hover {
   margin: 0;
   font-size: 0.875rem;
   color: var(--ink-muted);
+}
+
+/* —— Project Detail Pages —— */
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .project-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-detail-hero {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.project-detail-hero .project-thumb {
+  height: 220px;
+}
+
+.project-detail-hero .project-body {
+  padding: 1.5rem;
+}
+
+.project-detail-copy p {
+  margin: 0 0 1.25rem;
+  color: var(--ink-muted);
+}
+
+.project-detail-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.project-detail-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-detail-list li {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, #fff 80%, var(--accent-soft) 20%);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  color: var(--ink);
+  font-size: 0.98rem;
 }
