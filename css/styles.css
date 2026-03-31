@@ -649,42 +649,6 @@ main {
   line-height: 1.35;
 }
 
-/* Seattle Seahawks brand: College Navy + Action Green */
-.hobbies-tag-seahawks {
-  border-color: rgba(0, 34, 68, 0.22);
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-}
-
-.seahawks-word {
-  font-weight: 600;
-}
-
-.seahawks-word--city {
-  color: #002244;
-}
-
-.seahawks-word--city::after {
-  content: "\00a0";
-}
-
-.seahawks-watch {
-  color: var(--ink-muted);
-  font-weight: 500;
-  font-size: 0.78em;
-  margin-right: 0.25em;
-}
-
-.seahawks-nfl {
-  color: var(--ink-muted);
-  font-weight: 500;
-  font-size: 0.78em;
-  margin-right: 0.35em;
-}
-
-.seahawks-word--team {
-  color: #69be28;
-}
-
 .about-skills-lang {
   margin: 0.85rem 0 0;
   padding-top: 0.75rem;
