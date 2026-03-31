@@ -89,7 +89,7 @@
         return;
       }
 
-      var mailto = "hello@yourdomain.com";
+      var mailto = "manhca500@gmail.com";
       var subject = encodeURIComponent("Portfolio inquiry from " + nameVal);
       var body = encodeURIComponent(
         "Name: " + nameVal + "\nEmail: " + emailVal + "\n\n" + messageVal
