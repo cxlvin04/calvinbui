@@ -416,6 +416,10 @@ main {
   margin: 0 0 1rem;
 }
 
+.section-hero .eyebrow {
+  color: var(--accent);
+}
+
 .hero-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5.5vh + 1.5vw, 3.5rem);
@@ -663,11 +667,18 @@ main {
   content: "\00a0";
 }
 
+.seahawks-watch {
+  color: var(--ink-muted);
+  font-weight: 500;
+  font-size: 0.78em;
+  margin-right: 0.25em;
+}
+
 .seahawks-nfl {
   color: var(--ink-muted);
   font-weight: 500;
   font-size: 0.78em;
-  margin: 0 0.2em 0 0.15em;
+  margin-right: 0.35em;
 }
 
 .seahawks-word--team {
