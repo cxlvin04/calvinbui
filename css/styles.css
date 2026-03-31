@@ -1050,24 +1050,26 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
   margin-top: 0.15rem;
-  padding: 0.65rem 1.1rem;
+  padding: 0.7rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   border-radius: 8px;
   border: 1px solid #0a66c2;
-  background: #0a66c2;
-  color: #ffffff;
-  font-size: 0.9375rem;
-  font-weight: 600;
+  background: var(--bg);
+  color: #0a66c2;
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .contact-linkedin-btn:hover,
 .contact-linkedin-btn:focus-visible {
-  background: #004182;
+  background: rgba(10, 102, 194, 0.08);
   border-color: #004182;
-  color: #ffffff;
+  color: #004182;
 }
 
 .contact-linkedin-btn:focus-visible {
@@ -1077,6 +1079,15 @@ main {
 
 .contact-linkedin-icon {
   flex-shrink: 0;
+  display: block;
+  width: 26px;
+  height: 26px;
+  color: #0a66c2;
+}
+
+.contact-linkedin-btn:hover .contact-linkedin-icon,
+.contact-linkedin-btn:focus-visible .contact-linkedin-icon {
+  color: #004182;
 }
 
 .contact-intro--solo .contact-direct + .contact-direct {
