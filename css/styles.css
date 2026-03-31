@@ -965,10 +965,23 @@ main {
   margin-bottom: 0.3rem;
 }
 
-.contact-email {
+.contact-email,
+.contact-phone {
   font-size: 1.0625rem;
   font-weight: 600;
   color: var(--ink);
+  text-decoration: none;
+}
+
+.contact-email:hover,
+.contact-phone:hover {
+  color: var(--accent);
+}
+
+.contact-intro--solo .contact-direct + .contact-direct {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
 }
 
 .contact-form {
