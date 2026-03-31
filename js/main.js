@@ -102,4 +102,93 @@
       formStatus.classList.add("is-success");
     });
   }
+
+  /* Contact: mailto/tel often fail on Windows desktop; use Gmail web + copy phone */
+  var emailLink = document.querySelector("a.contact-email-link");
+  var phoneLink = document.querySelector("a.contact-phone-link");
+  var contactFeedback = document.getElementById("contact-feedback");
+  var desktopMql = window.matchMedia("(min-width: 768px)");
+
+  var CONTACT_EMAIL = "manhcal500@gmail.com";
+  var GMAIL_COMPOSE =
+    "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+    encodeURIComponent(CONTACT_EMAIL);
+  var MAILTO_HREF = "mailto:" + CONTACT_EMAIL;
+  var TEL_HREF = "tel:+16303402278";
+  var PHONE_COPY_TEXT = "+1 630-340-2278";
+
+  function showContactFeedback(message) {
+    if (!contactFeedback) return;
+    contactFeedback.textContent = message;
+    contactFeedback.hidden = false;
+    window.clearTimeout(showContactFeedback._t);
+    showContactFeedback._t = window.setTimeout(function () {
+      contactFeedback.textContent = "";
+      contactFeedback.hidden = true;
+    }, 4000);
+  }
+
+  function syncEmailForViewport() {
+    if (!emailLink) return;
+    if (desktopMql.matches) {
+      emailLink.href = GMAIL_COMPOSE;
+      emailLink.target = "_blank";
+      emailLink.rel = "noopener noreferrer";
+      emailLink.setAttribute(
+        "aria-label",
+        "Compose email in Gmail to " + CONTACT_EMAIL
+      );
+    } else {
+      emailLink.href = MAILTO_HREF;
+      emailLink.removeAttribute("target");
+      emailLink.rel = "noopener noreferrer";
+      emailLink.setAttribute(
+        "aria-label",
+        "Send email to " + CONTACT_EMAIL
+      );
+    }
+  }
+
+  function syncPhoneAriaForViewport() {
+    if (!phoneLink) return;
+    if (desktopMql.matches) {
+      phoneLink.setAttribute(
+        "aria-label",
+        "Copy phone number " + PHONE_COPY_TEXT + " to clipboard"
+      );
+    } else {
+      phoneLink.setAttribute("aria-label", "Call " + PHONE_COPY_TEXT);
+    }
+  }
+
+  function syncContactDesktop() {
+    syncEmailForViewport();
+    syncPhoneAriaForViewport();
+  }
+
+  if (emailLink || phoneLink) {
+    syncContactDesktop();
+    desktopMql.addEventListener("change", syncContactDesktop);
+  }
+
+  if (phoneLink) {
+    phoneLink.addEventListener("click", function (e) {
+      if (!desktopMql.matches) return;
+      e.preventDefault();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(PHONE_COPY_TEXT).then(
+          function () {
+            showContactFeedback(
+              "Number copied. Paste it into your phone or dialer to call."
+            );
+          },
+          function () {
+            window.location.href = TEL_HREF;
+          }
+        );
+      } else {
+        window.location.href = TEL_HREF;
+      }
+    });
+  }
 })();
