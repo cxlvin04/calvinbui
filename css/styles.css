@@ -1022,11 +1022,17 @@ main {
   font-size: 0.9375rem;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
   transition:
     border-color 0.2s,
     background 0.2s,
     color 0.2s,
     box-shadow 0.2s;
+}
+
+.contact-action-btn .contact-action-icon,
+.contact-action-btn > span {
+  pointer-events: none;
 }
 
 .contact-action-btn:hover,
