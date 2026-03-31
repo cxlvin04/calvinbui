@@ -99,6 +99,12 @@ a:hover {
   min-height: var(--header-h);
 }
 
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
 .logo {
   font-family: var(--font-display);
   font-weight: 700;
@@ -112,6 +118,36 @@ a:hover {
   color: var(--accent);
 }
 
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s var(--ease);
+}
+
+.social-link span {
+  font-family: var(--font-display);
+}
+
+.social-link--linkedin {
+  background: #0a66c2;
+  color: #fff;
+  border-color: #0a66c2;
+}
+
+.social-link--linkedin:hover {
+  background: #084482;
+  border-color: #084482;
+  color: #fff;
+}
+
 .site-nav .nav-list {
   list-style: none;
   margin: 0;
@@ -120,7 +156,7 @@ a:hover {
   gap: 0.25rem 1.5rem;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .nav-link {
@@ -185,6 +221,10 @@ a:hover {
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
+  }
+
+  .header-inner {
+    justify-content: space-between;
   }
 
   .site-nav {
