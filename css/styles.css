@@ -157,14 +157,15 @@ a:hover {
 }
 
 .social-link--linkedin {
-  background: #fff;
-  color: #0a66c2;
-  border-color: #dbeafe;
+  background: #0a66c2;
+  color: #ffffff;
+  border-color: #0a66c2;
 }
 
 .social-link--linkedin:hover {
-  background: #f0f9ff;
-  border-color: #93c5fd;
+  background: #004182;
+  border-color: #004182;
+  color: #ffffff;
 }
 
 .resume-link {
