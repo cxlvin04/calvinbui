@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portfolio — Advertising & strategy. Personal brand and selected work."
+      content="Portfolio — Advertising & strategy. Projects by Calvin Bui."
     />
-    <title>Calvin Bui | Advertising & Strategy</title>
+    <title>Projects | Calvin Bui</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <a class="skip-link" href="#home">Skip to content</a>
+    <a class="skip-link" href="#projects">Skip to content</a>
 
     <header class="site-header">
       <div class="header-inner">
@@ -38,10 +38,14 @@
             <li><a class="nav-link" href="index.html" data-section="home">Home</a></li>
             <li><a class="nav-link" href="about.html" data-section="about">About</a></li>
             <li>
-              <a class="nav-link" href="projects.html" data-section="projects">Projects</a>
+              <a class="nav-link" href="projects.html" data-section="projects"
+                >Projects</a
+              >
             </li>
             <li>
-              <a class="nav-link" href="contact.html" data-section="contact">Contact</a>
+              <a class="nav-link" href="contact.html" data-section="contact"
+                >Contact</a
+              >
             </li>
           </ul>
         </nav>
@@ -106,25 +110,76 @@
     </header>
 
     <main>
-      <section id="home" class="section section-hero" tabindex="-1">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Advertising · Business</p>
-            <h1 class="hero-title">
-              Ideas that move people <span class="hero-accent">&amp;</span> brands
-              forward.
-            </h1>
-            <p class="hero-lead">
-              I’m an advertising major with a business minor—focused on insight-driven
-              campaigns, clear strategy, and work that earns attention for the right
-              reasons.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="projects.html">View work</a>
-              <a class="btn btn-ghost" href="contact.html">Get in touch</a>
-            </div>
-          </div>
+      <section id="projects" class="section section-projects" tabindex="-1">
+        <div class="section-header">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-kicker">Selected work &amp; case snapshots</p>
         </div>
+        <ul class="project-grid">
+          <li>
+            <a
+              class="project-card project-card--link"
+              href="projects/campaign-refresh.html"
+              aria-label="Open Campaign refresh project"
+            >
+              <div
+                class="project-thumb"
+                role="img"
+                aria-label="Project placeholder"
+              ></div>
+              <div class="project-body">
+                <h3 class="project-title">Campaign refresh</h3>
+                <p class="project-meta">Strategy · Social · OOH</p>
+                <p class="project-desc">
+                  Repositioned a campus-facing brand with a tighter value prop and a
+                  modular toolkit for digital and print.
+                </p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="project-card project-card--link"
+              href="projects/product-launch-narrative.html"
+              aria-label="Open Product launch narrative project"
+            >
+              <div
+                class="project-thumb project-thumb--b"
+                role="img"
+                aria-label="Project placeholder"
+              ></div>
+              <div class="project-body">
+                <h3 class="project-title">Product launch narrative</h3>
+                <p class="project-meta">Research · Messaging</p>
+                <p class="project-desc">
+                  Built audience segments and a messaging house to guide launch
+                  communications across channels.
+                </p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="project-card project-card--link"
+              href="projects/cause-partnership.html"
+              aria-label="Open Cause partnership project"
+            >
+              <div
+                class="project-thumb project-thumb--c"
+                role="img"
+                aria-label="Project placeholder"
+              ></div>
+              <div class="project-body">
+                <h3 class="project-title">Cause partnership</h3>
+                <p class="project-meta">Partnerships · PR kit</p>
+                <p class="project-desc">
+                  Developed a partnership story and press materials that aligned brand
+                  values with community impact.
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
       </section>
     </main>
 
@@ -137,3 +192,4 @@
     <script src="js/main.js"></script>
   </body>
 </html>
+
