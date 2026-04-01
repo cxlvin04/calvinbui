@@ -611,6 +611,12 @@ main {
   width: 100%;
 }
 
+.about-edu + .about-edu {
+  margin-top: 1.1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
 .about-edu-mark {
   width: 100%;
   margin: 0 0 0.35rem;
@@ -622,7 +628,15 @@ main {
     0 0 0 1px rgba(23, 23, 23, 0.06);
 }
 
-.about-uiuc-logo {
+.about-edu-mark--light {
+  background: #ffffff;
+  box-shadow:
+    0 12px 28px -10px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(23, 23, 23, 0.06);
+}
+
+.about-uiuc-logo,
+.about-google-logo {
   display: block;
   width: 100%;
   height: auto;
