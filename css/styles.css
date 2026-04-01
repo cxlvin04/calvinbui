@@ -944,6 +944,18 @@ main {
   line-height: 1.55;
 }
 
+.project-detail-overview {
+  margin-top: clamp(1.25rem, 3vh, 2rem);
+  max-width: 42rem;
+}
+
+.project-detail-overview p {
+  margin: 0;
+  font-size: clamp(0.9rem, 0.9vh + 0.8rem, 1.02rem);
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
 .project-detail-copy p {
   margin: 0 0 1.1rem;
   color: var(--ink-muted);
