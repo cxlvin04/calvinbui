@@ -953,6 +953,53 @@ main {
   margin-top: clamp(1.25rem, 2.5vh, 2rem);
 }
 
+.project-portfolio {
+  margin-top: clamp(1.5rem, 3vh, 2.25rem);
+}
+
+.project-portfolio-intro {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  max-width: 42rem;
+  line-height: 1.5;
+}
+
+.project-portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .project-portfolio-item--wide {
+    grid-column: span 2;
+  }
+}
+
+.project-portfolio-item {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-subtle);
+}
+
+.project-portfolio-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.project-portfolio-item figcaption {
+  padding: 0.65rem 0.9rem;
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
+}
+
 /* Contact */
 .section-contact {
   border-top: none;
