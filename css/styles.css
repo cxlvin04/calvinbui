@@ -394,6 +394,26 @@ main {
   text-transform: uppercase;
 }
 
+.section-header--with-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  max-width: none;
+}
+
+.section-header-text {
+  flex: 1 1 min(100%, 32rem);
+  min-width: 0;
+}
+
+.section-header-action {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 0.2rem;
+}
+
 /* Hero */
 .section-hero {
   padding-top: 0;
@@ -911,6 +931,17 @@ main {
 
 .project-detail-hero .project-body {
   padding: 1.35rem 1.35rem 1.45rem;
+}
+
+/* Full project summary on detail pages (card grid uses .project-desc with line-clamp) */
+.project-detail-hero .project-desc {
+  display: block;
+  flex: none;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: initial;
+  font-size: clamp(0.9rem, 0.9vh + 0.8rem, 1.02rem);
+  line-height: 1.55;
 }
 
 .project-detail-copy p {
