@@ -511,16 +511,19 @@ main {
 /* About */
 .section-about {
   border-top: none;
-  justify-content: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .about-layout {
   display: grid;
-  grid-template-columns: minmax(240px, min(40vw, 340px)) minmax(0, 1fr);
-  gap: clamp(1.25rem, 3vw, 2.5rem);
+  grid-template-columns: minmax(200px, min(34vw, 260px)) minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
   align-items: start;
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .about-photo-card {
@@ -534,7 +537,9 @@ main {
 
 .about-photo-frame {
   position: relative;
-  border-radius: 20px;
+  max-width: 220px;
+  margin: 0 auto;
+  border-radius: 18px;
   padding: 3px;
   background: linear-gradient(
     145deg,
@@ -543,7 +548,7 @@ main {
     var(--accent) 100%
   );
   box-shadow:
-    0 20px 40px -12px rgba(180, 83, 9, 0.35),
+    0 16px 32px -12px rgba(180, 83, 9, 0.3),
     0 0 0 1px rgba(23, 23, 23, 0.06);
 }
 
@@ -561,7 +566,8 @@ main {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 17px;
+  max-height: 200px;
+  border-radius: 15px;
   object-fit: cover;
   aspect-ratio: 4 / 3;
   vertical-align: middle;
@@ -569,9 +575,9 @@ main {
 }
 
 .about-photo-label {
-  margin: 0.65rem 0 0;
+  margin: 0.5rem 0 0;
   font-family: var(--font-display);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -579,7 +585,7 @@ main {
 }
 
 .about-photo-actions {
-  margin-top: 0.85rem;
+  margin-top: 0.55rem;
   display: flex;
   justify-content: center;
 }
@@ -600,28 +606,28 @@ main {
 }
 
 .about-edu {
-  margin-top: 1.25rem;
-  padding-top: 1.1rem;
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
   border-top: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   align-items: stretch;
   text-align: center;
-  gap: 0.55rem;
+  gap: 0.35rem;
   width: 100%;
 }
 
 .about-edu + .about-edu {
-  margin-top: 1.1rem;
-  padding-top: 1.1rem;
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
   border-top: 1px solid var(--line);
 }
 
 .about-edu-mark {
   width: 100%;
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.2rem;
   line-height: 0;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow:
     0 12px 28px -10px rgba(19, 41, 75, 0.22),
@@ -635,11 +641,22 @@ main {
     0 0 0 1px rgba(23, 23, 23, 0.06);
 }
 
-.about-uiuc-logo,
+.about-uiuc-logo {
+  display: block;
+  width: 100%;
+  max-height: 72px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
 .about-google-logo {
   display: block;
   width: 100%;
+  max-height: 48px;
   height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 .about-edu-school,
@@ -696,7 +713,7 @@ main {
   }
 
   .about-photo-card {
-    max-width: 340px;
+    max-width: 260px;
     width: 100%;
   }
 
