@@ -578,7 +578,7 @@ main {
 
 .about-layout {
   display: grid;
-  grid-template-columns: minmax(220px, min(40vw, 300px)) minmax(0, 1fr);
+  grid-template-columns: minmax(280px, min(52vw, 420px)) minmax(0, 1fr);
   gap: clamp(0.75rem, 2vw, 1.25rem);
   align-items: start;
   min-height: 0;
@@ -597,7 +597,7 @@ main {
 
 .about-photo-frame {
   position: relative;
-  max-width: 280px;
+  max-width: 400px;
   margin: 0 auto;
   border-radius: 18px;
   padding: 3px;
@@ -626,10 +626,11 @@ main {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 260px;
+  max-height: min(520px, 58vh);
   border-radius: 15px;
   object-fit: cover;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
+  object-position: 62% 42%;
   vertical-align: middle;
   background: var(--bg-subtle);
 }
@@ -783,7 +784,7 @@ main {
   }
 
   .about-photo-card {
-    max-width: 300px;
+    max-width: min(400px, 92vw);
     width: 100%;
   }
 
